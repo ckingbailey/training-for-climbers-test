@@ -4,19 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training for Climbing: Self-Assessment Test</title>
+    <style>
+        .submit-button {
+            display: block;
+        }
+        .answer-group:nth-child(1) {
+            background: #ffd0d0;
+        }
+        .answer-group:nth-child(2) {
+            background: #ffffd0;
+        }
+        .answer-group:nth-child(3) {
+            background: #d0ddff;
+        }
+    </style>
 </head>
 <body>
     <form id="self-assessment-test" name="self-assessment-test">
-        <% for (i in questions) { %>
+        <% for (let i in questions) { %>
         <p><%= +i + 1 %>. <%= questions[i].text %></p>
-        
         <% for (let j = 1; j <= 5; j++) { %>
-        <input type="radio" id="<%= j %>" name="<%= i %>-<%= questions[i].slug %>" value="<%= j %>">
-        <label for="<%= i %>-<%= questions[i].slug %>"><%= j %></label>
+        <% var id = `q${ +i + 1}-${j}` %>
+        <input
+            type="radio"
+            id="<%= id %>"
+            name="q<%= +i + 1 %>"
+            value="<%= j %>"
+        >
+        <label
+            for="<%= id %>"
+        ><%= j %></label>
         <% } %>
         <% } %>
-        <button type="submit">Submit</button>
+        <button class="submit-button" type="submit">Submit</button>
     </form>
-    <script src="handle-form-submit.js"></script>
+    <div id="answer-zone">
+        <div class="answer-group" id="group-1"></div>
+        <div class="answer-group" id="group-2"></div>
+        <div class="answer-group" id="group-3"></div>
+    </div>
+    <script src="js/handle-form-submit.js"></script>
 </body>
 </html>
