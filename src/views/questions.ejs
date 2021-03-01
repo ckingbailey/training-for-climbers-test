@@ -7,9 +7,13 @@
 </head>
 <body>
     <form id="self-assessment-test" name="self-assessment-test">
-        <% for i in questions { %>
-        <input type="radio" id="<%= questions[i] %>" name="<%= questions[i] %>" value="<%= questions[i] %>">
-        <label for="<%= i + 1 %>">#{ index }. <%= questions[i] %></label>
+        <% for (i in questions) { %>
+        <p><%= +i + 1 %>. <%= questions[i].text %></p>
+        
+        <% for (let j = 1; j <= 5; j++) { %>
+        <input type="radio" id="<%= j %>" name="<%= i %>-<%= questions[i].slug %>" value="<%= j %>">
+        <label for="<%= i %>-<%= questions[i].slug %>"><%= j %></label>
+        <% } %>
         <% } %>
         <button type="submit">Submit</button>
     </form>
