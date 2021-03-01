@@ -1,42 +1,39 @@
 const fs = require('fs');
 const readline = require('readline');
-const thru = require('through2');
 
 function transformQuestionsIntoHTML() {
     reader = fs.createReadStream(__dirname + '/questions.yml', { encoding: 'utf8' });
-    writer = fs.createWriteStream(__dirname + '/questions.html');
-    lineReader = readline.createInterface({ input: reader });
-
-    questionTemplate = fs.readFileSync(__dirname + '/questionTemplate.html');
+    lineReader = readline.createInterface({
+        input: reader
+    });
+    
+    questionTemplate = fs.readFileSync(__dirname + '/questionTemplate.html', { encoding: 'utf8' });
     transformQuestion = createQuestionTranformer(questionTemplate);
     
-    (lineReader
-        .on('data', d => {
-            console.log(typeof d);
-            console.log(d.length);
+    fs.open(__dirname + '/questions.html', 'w', (err, fd) => {
+        fs.appendFileSync(fd, '<form>\n');
+
+        lineReader.on('line', line => {
+            htmlElement = transformQuestion(line);
+            fs.appendFileSync(fd, htmlElement);
+        }).on('close', () => {
+            fs.appendFileSync(fd, '\n</form>');
         })
-        .pipe(thru({ objectMode: false }, transformQuestion))
-        .pipe(process.stdout)
-        .on('end', () => console.log('fin!'))
-    );
+    });
 }
 
-// function whatIsIt(d, enc)
-
 function createQuestionTranformer(template) {
-    return function(d, enc, callback) {
-        console.log('[INFO] `enc` data is a ' + enc);
-        console.log('[INFO] d is a typeof ' + typeof d);
-        console.log('[INFO] d is ' + d.length + ' long');
-        console.log('[INFO] d has props ' + Object.getOwnPropertyNames(d));
+    counter = 1;
 
-        questionSlug = d.toLowerCase().replace(/\s+/g, '-');
+    return function(d) {
+        questionSlug = d.slice(2).toLowerCase().replace(/\s+/g, '-');
+        questionText = d.replace('- ', `${counter}. `)
         questionElement = (template
-            .replace('{% questionText %}', d)
+            .replace('{% questionText %}', questionText)
             .replace(/{% questionSlug %}/g, questionSlug));
-        this.push(questionElement);
-        
-        callback();
+    
+        counter++;
+        return questionElement
     }
 }
 
