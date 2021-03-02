@@ -4,6 +4,8 @@
   "description": "",
   "main": "processQuestions.js",
   "scripts": {
+    "build": "node compile.js",
+    "dev": "supervisor -n success --watch 'src' -e 'ejs|yml' compile.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,6 +15,7 @@
     "commander": "^7.1.0",
     "ejs": "^3.1.6",
     "ejs-lint": "^1.1.0",
-    "node-yaml": "^4.0.1"
+    "node-yaml": "^4.0.1",
+    "supervisor": "^0.12.0"
   }
 }

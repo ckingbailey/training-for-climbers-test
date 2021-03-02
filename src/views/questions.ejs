@@ -5,8 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training for Climbing: Self-Assessment Test</title>
     <style>
+        body {
+            font-family: sans-serif;
+        }
         .submit-button {
             display: block;
+            padding: .25rem;
+            font-size: 1.5rem;
+        }
+        .answer-zone {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .75rem;
+        }
+        .answer-group {
+            padding: 2rem;
+            text-align: center;
+            font-size: 2rem;
         }
         .answer-group:nth-child(1) {
             background: #ffd0d0;
@@ -38,7 +53,7 @@
         <% } %>
         <button class="submit-button" type="submit">Submit</button>
     </form>
-    <div id="answer-zone">
+    <div id="answer-zone" class="answer-zone">
         <div class="answer-group" id="group-1"></div>
         <div class="answer-group" id="group-2"></div>
         <div class="answer-group" id="group-3"></div>

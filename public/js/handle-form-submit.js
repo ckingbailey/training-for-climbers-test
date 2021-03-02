@@ -14,11 +14,22 @@ function handleFormSubmit(event) {
         tally[category]++;
     }
 
+    categories = [
+        'Mental',
+        'Technique and Tactics',
+        'Physical'
+    ]
+
     document.querySelectorAll(`[id^=group-`)
     .forEach((element, i) => {
-        p = document.createElement('p')
-        p.innerText = tally[i]
-        element.appendChild(p)
+        heading = document.createElement('h3');
+        heading.innerText = categories[i];
+
+        score = document.createElement('p');
+        score.innerText = tally[i];
+
+        element.appendChild(heading);
+        element.appendChild(score);
     })
 
 }
