@@ -11,7 +11,8 @@ function handleFormSubmit(event) {
 
     for (let response of responses) {
         category = (+response[0].replace(/\D*/g, '') - 1 ) % 3;
-        tally[category]++;
+        score = +response[1];
+        tally[category] += score;
     }
 
     categories = [
