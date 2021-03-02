@@ -7,13 +7,18 @@ function handleFormSubmit(event) {
     answerZone = document.getElementById('answer-zone');
     responses = new FormData(form);
 
+    tally = Array(3).fill(0);
+
     for (let response of responses) {
-        groupNum = (+response[0].replace(/\D*/g, '') - 1 ) % 3 + 1;
-        groupElement = document.getElementById(`group-${groupNum}`)
-
-        p = document.createElement('p')
-        p.innerText = `${response[0]}: ${response[1]}`
-
-        groupElement.appendChild(p)
+        category = (+response[0].replace(/\D*/g, '') - 1 ) % 3;
+        tally[category]++;
     }
+
+    document.querySelectorAll(`[id^=group-`)
+    .forEach((element, i) => {
+        p = document.createElement('p')
+        p.innerText = tally[i]
+        element.appendChild(p)
+    })
+
 }
