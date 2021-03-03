@@ -17,7 +17,7 @@ function handleFormSubmit(event) {
 
     categories = [
         'Mental',
-        'Technique and Tactics',
+        'Technique & Tactics',
         'Physical'
     ]
 
