@@ -5,14 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training for Climbing: Self-Assessment Test</title>
     <style>
-        body {
-            font-family: sans-serif;
+        :root {
+            --text-color: #16161d;
+            --gray-color: #ececed;
+            --selected-color: #3d01f2;
         }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 16px;
+            line-height: 1.5;
+            padding: 1rem;
+        }
+
+        label {
+            display: inline-block;
+            padding: .25rem .5rem;
+            color: var(--text-color);
+            background: var(--gray-color);
+            /* border: solid .125rem var(--text-color); */
+            border-radius: .25rem;
+            margin-bottom: .25rem;
+        }
+
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        input[type="radio"]:checked + label {
+            background: var(--selected-color);
+            color: white;
+        }
+
+        label[for*="-5"] {
+            margin-bottom: 32px;
+        }
+
+
         .submit-button {
             display: block;
-            padding: .25rem;
+            padding: .5rem 1rem;
             font-size: 1.5rem;
+            color: white;
+            font-weight: 600;
+            letter-spacing: .0125rem;
+            border: solid .125rem var(--selected-color);
+            background: var(--selected-color);
+            border-radius: .25rem;
+            margin-bottom: 2rem;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥳</text></svg>")
+      16 0, auto;
         }
+
+        .submit-button:hover, label:hover {
+            transition: all 0.25s;
+            transform: scale(1.05);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2), 
+                        0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        label:hover {
+            color: var(--selected-color);
+        }
+
+        .submit-button:hover {
+            border: solid .125rem var(--selected-color);
+            color: var(--selected-color);
+            background-image: 
+                repeating-linear-gradient(
+                    135deg, 
+                    #E94584, 
+                    #E94584 1rem,
+                    #F17C58 1rem,
+                    #F17C58 2rem,
+                    #FFDC18 2rem,
+                    #FFDC18 3rem,
+                    #27DBB1 3rem,
+                    #27DBB1 4rem,
+                    #24AADB 4rem,
+                    #24AADB 5rem, 
+                    #27DBB1 5rem,
+                    #27DBB1 6rem,
+                    #FFDC18 6rem,
+                    #FFDC18 7rem,
+                    #F17C58 7rem,
+                    #F17C58 8rem,
+                    #E94584 8rem, 
+                    #E94584 9rem,
+                    #F17C58 9rem,
+                    #F17C58 10rem,
+                    #FFDC18 10rem,
+                    #FFDC18 11rem,
+                    #27DBB1 11rem,
+                    #27DBB1 12rem,
+                    #24AADB 12rem,
+                    #24AADB 13rem, 
+                    #27DBB1 13rem,
+                    #27DBB1 14rem,
+                    #FFDC18 14rem,
+                    #FFDC18 15rem,
+                    #F17C58 15rem,
+                    #F17C58 16rem
+                    );
+                background-size: 200% 200%;
+                animation: barberpole 1s linear infinite;
+            }
+
+        @keyframes barberpole {
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+
         .answer-zone {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -32,6 +138,52 @@
         .answer-group:nth-child(3) {
             background: #d0ddff;
         }
+
+
+        /****** Cursors *****/
+
+        label[for*="-0"] {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥵</text></svg>")
+      16 0, auto;
+        }
+
+        label[for*="-1"] {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>😬</text></svg>")
+      16 0, auto;
+        }
+
+        label[for*="-2"] {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>😥</text></svg>")
+      16 0, auto;
+        }
+
+        label[for*="-3"] {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>😕</text></svg>")
+      16 0, auto;
+        }
+
+        label[for*="-4"] {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👍</text></svg>")
+      16 0, auto;
+        }
+
+        label[for*="-5"] {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🤘</text></svg>")
+      16 0, auto;
+        }
+
+
+        @media screen and (max-width: 375px) {
+            label {
+                display: flex;
+            }
+
+            .submit-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -48,7 +200,7 @@
         >
         <label
             for="q1-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -59,7 +211,7 @@
         >
         <label
             for="q1-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -70,7 +222,7 @@
         >
         <label
             for="q1-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -81,8 +233,8 @@
         >
         <label
             for="q1-4"
-        >4</label>
-        
+        >seldom</label>
+        </input>
         
         <input
             type="radio"
@@ -92,7 +244,7 @@
         >
         <label
             for="q1-5"
-        >5</label>
+        >never</label>
         
         
         <p>2. My forearms baloon and my grip begins to fail even on routes that are easy for me.</p>
@@ -106,7 +258,7 @@
         >
         <label
             for="q2-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -117,7 +269,7 @@
         >
         <label
             for="q2-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -128,7 +280,7 @@
         >
         <label
             for="q2-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -139,7 +291,7 @@
         >
         <label
             for="q2-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -150,7 +302,7 @@
         >
         <label
             for="q2-5"
-        >5</label>
+        >never</label>
         
         
         <p>3. On hard sequences, I have difficulty stepping onto critical footholds.</p>
@@ -164,7 +316,7 @@
         >
         <label
             for="q3-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -175,7 +327,7 @@
         >
         <label
             for="q3-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -186,7 +338,7 @@
         >
         <label
             for="q3-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -197,7 +349,7 @@
         >
         <label
             for="q3-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -208,7 +360,7 @@
         >
         <label
             for="q3-5"
-        >5</label>
+        >never</label>
         
         
         <p>4. I get anxious and tight as I head into crux sequences.</p>
@@ -222,7 +374,7 @@
         >
         <label
             for="q4-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -233,7 +385,7 @@
         >
         <label
             for="q4-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -244,7 +396,7 @@
         >
         <label
             for="q4-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -255,7 +407,7 @@
         >
         <label
             for="q4-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -266,7 +418,7 @@
         >
         <label
             for="q4-5"
-        >5</label>
+        >never</label>
         
         
         <p>5. My biceps (upper arms) pump out before my forearms.</p>
@@ -280,7 +432,7 @@
         >
         <label
             for="q5-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -291,7 +443,7 @@
         >
         <label
             for="q5-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -302,7 +454,7 @@
         >
         <label
             for="q5-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -313,7 +465,7 @@
         >
         <label
             for="q5-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -324,7 +476,7 @@
         >
         <label
             for="q5-5"
-        >5</label>
+        >never</label>
         
         
         <p>6. I have difficulty hanging on small, necessary-to-use holds.</p>
@@ -338,7 +490,7 @@
         >
         <label
             for="q6-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -349,7 +501,7 @@
         >
         <label
             for="q6-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -360,7 +512,7 @@
         >
         <label
             for="q6-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -371,7 +523,7 @@
         >
         <label
             for="q6-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -382,7 +534,7 @@
         >
         <label
             for="q6-5"
-        >5</label>
+        >never</label>
         
         
         <p>7. I blow sequences I have wired and know by heart.</p>
@@ -396,7 +548,7 @@
         >
         <label
             for="q7-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -407,7 +559,7 @@
         >
         <label
             for="q7-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -418,7 +570,7 @@
         >
         <label
             for="q7-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -429,7 +581,7 @@
         >
         <label
             for="q7-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -440,7 +592,7 @@
         >
         <label
             for="q7-5"
-        >5</label>
+        >never</label>
         
         
         <p>8. I stall at the start of crux sequences.I  end up having to hang on the rope and rest before I can give it a good, solid try.</p>
@@ -454,7 +606,7 @@
         >
         <label
             for="q8-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -465,7 +617,7 @@
         >
         <label
             for="q8-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -476,7 +628,7 @@
         >
         <label
             for="q8-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -487,7 +639,7 @@
         >
         <label
             for="q8-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -498,7 +650,7 @@
         >
         <label
             for="q8-5"
-        >5</label>
+        >never</label>
         
         
         <p>9. I clumb three or four days in a row.</p>
@@ -512,7 +664,7 @@
         >
         <label
             for="q9-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -523,7 +675,7 @@
         >
         <label
             for="q9-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -534,7 +686,7 @@
         >
         <label
             for="q9-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -545,7 +697,7 @@
         >
         <label
             for="q9-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -556,7 +708,7 @@
         >
         <label
             for="q9-5"
-        >5</label>
+        >never</label>
         
         
         <p>10. I get sewing-machine leg (&#34;Elvis leg&#34;).</p>
@@ -570,7 +722,7 @@
         >
         <label
             for="q10-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -581,7 +733,7 @@
         >
         <label
             for="q10-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -592,7 +744,7 @@
         >
         <label
             for="q10-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -603,7 +755,7 @@
         >
         <label
             for="q10-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -614,7 +766,7 @@
         >
         <label
             for="q10-5"
-        >5</label>
+        >never</label>
         
         
         <p>11. I pump out on overhanging climbs no matter how big the holds.</p>
@@ -628,7 +780,7 @@
         >
         <label
             for="q11-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -639,7 +791,7 @@
         >
         <label
             for="q11-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -650,7 +802,7 @@
         >
         <label
             for="q11-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -661,7 +813,7 @@
         >
         <label
             for="q11-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -672,7 +824,7 @@
         >
         <label
             for="q11-5"
-        >5</label>
+        >never</label>
         
         
         <p>12. I get out of breath when I climb.</p>
@@ -686,7 +838,7 @@
         >
         <label
             for="q12-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -697,7 +849,7 @@
         >
         <label
             for="q12-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -708,7 +860,7 @@
         >
         <label
             for="q12-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -719,7 +871,7 @@
         >
         <label
             for="q12-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -730,7 +882,7 @@
         >
         <label
             for="q12-5"
-        >5</label>
+        >never</label>
         
         
         <p>13. I make excuses for why I might fail on a route before I even begin to climb.</p>
@@ -744,7 +896,7 @@
         >
         <label
             for="q13-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -755,7 +907,7 @@
         >
         <label
             for="q13-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -766,7 +918,7 @@
         >
         <label
             for="q13-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -777,7 +929,7 @@
         >
         <label
             for="q13-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -788,7 +940,7 @@
         >
         <label
             for="q13-5"
-        >5</label>
+        >never</label>
         
         
         <p>14. I miss hidden holds on routes.</p>
@@ -802,7 +954,7 @@
         >
         <label
             for="q14-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -813,7 +965,7 @@
         >
         <label
             for="q14-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -824,7 +976,7 @@
         >
         <label
             for="q14-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -835,7 +987,7 @@
         >
         <label
             for="q14-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -846,7 +998,7 @@
         >
         <label
             for="q14-5"
-        >5</label>
+        >never</label>
         
         
         <p>15. I have difficulty hanging on to small sloping holds or pockets.</p>
@@ -860,7 +1012,7 @@
         >
         <label
             for="q15-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -871,7 +1023,7 @@
         >
         <label
             for="q15-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -882,7 +1034,7 @@
         >
         <label
             for="q15-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -893,7 +1045,7 @@
         >
         <label
             for="q15-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -904,7 +1056,7 @@
         >
         <label
             for="q15-5"
-        >5</label>
+        >never</label>
         
         
         <p>16. I grab quick draws, the rope, or other grear instead of risking a fall trying a hard move of which I am unsure.</p>
@@ -918,7 +1070,7 @@
         >
         <label
             for="q16-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -929,7 +1081,7 @@
         >
         <label
             for="q16-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -940,7 +1092,7 @@
         >
         <label
             for="q16-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -951,7 +1103,7 @@
         >
         <label
             for="q16-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -962,7 +1114,7 @@
         >
         <label
             for="q16-5"
-        >5</label>
+        >never</label>
         
         
         <p>17. On a typical climb, I feel like much of my body weight is hanging on my arms.</p>
@@ -976,7 +1128,7 @@
         >
         <label
             for="q17-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -987,7 +1139,7 @@
         >
         <label
             for="q17-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -998,7 +1150,7 @@
         >
         <label
             for="q17-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1009,7 +1161,7 @@
         >
         <label
             for="q17-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1020,7 +1172,7 @@
         >
         <label
             for="q17-5"
-        >5</label>
+        >never</label>
         
         
         <p>18. I get very sore the day after climbing at the crags.</p>
@@ -1034,7 +1186,7 @@
         >
         <label
             for="q18-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -1045,7 +1197,7 @@
         >
         <label
             for="q18-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -1056,7 +1208,7 @@
         >
         <label
             for="q18-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1067,7 +1219,7 @@
         >
         <label
             for="q18-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1078,7 +1230,7 @@
         >
         <label
             for="q18-5"
-        >5</label>
+        >never</label>
         
         
         <p>19. I have difficulty visualizing myself successfully climbing the route before I leave the ground.</p>
@@ -1092,7 +1244,7 @@
         >
         <label
             for="q19-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -1103,7 +1255,7 @@
         >
         <label
             for="q19-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -1114,7 +1266,7 @@
         >
         <label
             for="q19-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1125,7 +1277,7 @@
         >
         <label
             for="q19-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1136,7 +1288,7 @@
         >
         <label
             for="q19-5"
-        >5</label>
+        >never</label>
         
         
         <p>20. I cannot reach key holds on difficult routes.</p>
@@ -1150,7 +1302,7 @@
         >
         <label
             for="q20-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -1161,7 +1313,7 @@
         >
         <label
             for="q20-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -1172,7 +1324,7 @@
         >
         <label
             for="q20-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1183,7 +1335,7 @@
         >
         <label
             for="q20-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1194,7 +1346,7 @@
         >
         <label
             for="q20-5"
-        >5</label>
+        >never</label>
         
         
         <p>21. On overhaning routes and roofts, I have difficulty keeping my feet from cutting loose and swining out.</p>
@@ -1208,7 +1360,7 @@
         >
         <label
             for="q21-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -1219,7 +1371,7 @@
         >
         <label
             for="q21-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -1230,7 +1382,7 @@
         >
         <label
             for="q21-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1241,7 +1393,7 @@
         >
         <label
             for="q21-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1252,7 +1404,7 @@
         >
         <label
             for="q21-5"
-        >5</label>
+        >never</label>
         
         
         <p>22. While climbing, I get distracted by activity on the ground and/or I think about whether the belayer is paying attention.</p>
@@ -1266,7 +1418,7 @@
         >
         <label
             for="q22-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -1277,7 +1429,7 @@
         >
         <label
             for="q22-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -1288,7 +1440,7 @@
         >
         <label
             for="q22-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1299,7 +1451,7 @@
         >
         <label
             for="q22-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1310,7 +1462,7 @@
         >
         <label
             for="q22-5"
-        >5</label>
+        >never</label>
         
         
         <p>23. I have difficulty reading sequences.</p>
@@ -1324,7 +1476,7 @@
         >
         <label
             for="q23-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -1335,7 +1487,7 @@
         >
         <label
             for="q23-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -1346,7 +1498,7 @@
         >
         <label
             for="q23-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1357,7 +1509,7 @@
         >
         <label
             for="q23-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1368,7 +1520,7 @@
         >
         <label
             for="q23-5"
-        >5</label>
+        >never</label>
         
         
         <p>24. I get a flash plump on the first climbing of the day.</p>
@@ -1382,7 +1534,7 @@
         >
         <label
             for="q24-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -1393,7 +1545,7 @@
         >
         <label
             for="q24-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -1404,7 +1556,7 @@
         >
         <label
             for="q24-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1415,7 +1567,7 @@
         >
         <label
             for="q24-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1426,7 +1578,7 @@
         >
         <label
             for="q24-5"
-        >5</label>
+        >never</label>
         
         
         <p>25. I have more difficulty climbing when people are watching.</p>
@@ -1440,7 +1592,7 @@
         >
         <label
             for="q25-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -1451,7 +1603,7 @@
         >
         <label
             for="q25-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -1462,7 +1614,7 @@
         >
         <label
             for="q25-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1473,7 +1625,7 @@
         >
         <label
             for="q25-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1484,7 +1636,7 @@
         >
         <label
             for="q25-5"
-        >5</label>
+        >never</label>
         
         
         <p>26. My feet unexpectedly pop off footholds.</p>
@@ -1498,7 +1650,7 @@
         >
         <label
             for="q26-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -1509,7 +1661,7 @@
         >
         <label
             for="q26-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -1520,7 +1672,7 @@
         >
         <label
             for="q26-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1531,7 +1683,7 @@
         >
         <label
             for="q26-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1542,7 +1694,7 @@
         >
         <label
             for="q26-5"
-        >5</label>
+        >never</label>
         
         
         <p>27. I experience elbow pain when I climb on a regular basis.</p>
@@ -1556,7 +1708,7 @@
         >
         <label
             for="q27-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -1567,7 +1719,7 @@
         >
         <label
             for="q27-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -1578,7 +1730,7 @@
         >
         <label
             for="q27-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1589,7 +1741,7 @@
         >
         <label
             for="q27-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1600,7 +1752,7 @@
         >
         <label
             for="q27-5"
-        >5</label>
+        >never</label>
         
         
         <p>28. When leading climbing a safe route, I have difficulty pushing myself to the complete limit.</p>
@@ -1614,7 +1766,7 @@
         >
         <label
             for="q28-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -1625,7 +1777,7 @@
         >
         <label
             for="q28-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -1636,7 +1788,7 @@
         >
         <label
             for="q28-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1647,7 +1799,7 @@
         >
         <label
             for="q28-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1658,7 +1810,7 @@
         >
         <label
             for="q28-5"
-        >5</label>
+        >never</label>
         
         
         <p>29. I have difficulty finding midroute rest positions and shakeouts.</p>
@@ -1672,7 +1824,7 @@
         >
         <label
             for="q29-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -1683,7 +1835,7 @@
         >
         <label
             for="q29-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -1694,7 +1846,7 @@
         >
         <label
             for="q29-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1705,7 +1857,7 @@
         >
         <label
             for="q29-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1716,7 +1868,7 @@
         >
         <label
             for="q29-5"
-        >5</label>
+        >never</label>
         
         
         <p>30. My first attempt on a hard route is usually better than my second or third attempts of the day.</p>
@@ -1730,7 +1882,7 @@
         >
         <label
             for="q30-1"
-        >1</label>
+        >often</label>
         
         
         <input
@@ -1741,7 +1893,7 @@
         >
         <label
             for="q30-2"
-        >2</label>
+        >about half the time</label>
         
         
         <input
@@ -1752,7 +1904,7 @@
         >
         <label
             for="q30-3"
-        >3</label>
+        >occasionally</label>
         
         
         <input
@@ -1763,7 +1915,7 @@
         >
         <label
             for="q30-4"
-        >4</label>
+        >seldom</label>
         
         
         <input
@@ -1774,7 +1926,7 @@
         >
         <label
             for="q30-5"
-        >5</label>
+        >never</label>
         
         
         <button class="submit-button" type="submit">Submit</button>
