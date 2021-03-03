@@ -9,6 +9,42 @@
             --text-color: #16161d;
             --gray-color: #ececed;
             --selected-color: #3d01f2;
+            --selected-light: #e7e1ff;
+            --rainbow-gradient: repeating-linear-gradient(
+                        135deg, 
+                        #E94584, 
+                        #E94584 1rem,
+                        #F17C58 1rem,
+                        #F17C58 2rem,
+                        #FFDC18 2rem,
+                        #FFDC18 3rem,
+                        #27DBB1 3rem,
+                        #27DBB1 4rem,
+                        #24AADB 4rem,
+                        #24AADB 5rem, 
+                        #27DBB1 5rem,
+                        #27DBB1 6rem,
+                        #FFDC18 6rem,
+                        #FFDC18 7rem,
+                        #F17C58 7rem,
+                        #F17C58 8rem,
+                        #E94584 8rem, 
+                        #E94584 9rem,
+                        #F17C58 9rem,
+                        #F17C58 10rem,
+                        #FFDC18 10rem,
+                        #FFDC18 11rem,
+                        #27DBB1 11rem,
+                        #27DBB1 12rem,
+                        #24AADB 12rem,
+                        #24AADB 13rem, 
+                        #27DBB1 13rem,
+                        #27DBB1 14rem,
+                        #FFDC18 14rem,
+                        #FFDC18 15rem,
+                        #F17C58 15rem,
+                        #F17C58 16rem
+                        );
         }
 
         body {
@@ -18,13 +54,19 @@
             padding: 1rem;
         }
 
+        p {
+            margin: 0 0 .5rem 0;
+        }
+
         label {
             display: inline-block;
             padding: .25rem .5rem;
             color: var(--text-color);
             background: var(--gray-color);
+            border: solid 2px var(--gray-color);
             border-radius: .25rem;
             margin-bottom: .25rem;
+            box-sizing: border-box;
         }
 
 
@@ -33,14 +75,14 @@
         }
 
         input[type="radio"]:checked + label {
-            background: var(--selected-color);
-            color: white;
+            border: solid 2px var(--selected-color);
+            color: var(--selected-color);
+            background: var(--selected-light);
         }
 
         label[for*="-5"] {
             margin-bottom: 32px;
         }
-
 
         .submit-button {
             display: block;
@@ -50,19 +92,73 @@
             color: white;
             font-weight: 600;
             letter-spacing: .0125rem;
-            border: solid .125rem var(--selected-color);
+            border: none;
             background: var(--selected-color);
             border-radius: .25rem;
             margin-bottom: 2rem;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥳</text></svg>")
       16 0, auto;
         }
 
-        .submit-button:hover, label:hover {
-            transition: all 0.25s;
-            transform: scale(1.05);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2), 
-                        0 4px 8px rgba(0, 0, 0, 0.2);
+        @media (pointer: fine) {
+
+            label:hover {
+                color: var(--selected-color);
+            }
+
+            .submit-button:hover, label:hover {
+                transition: all 0.25s;
+                transform: scale(1.05);
+                box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2), 
+                            0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .submit-button:hover {
+                color: var(--selected-color);
+                background-image: 
+                    var(--rainbow-gradient);
+                    background-size: 200% 200%;
+                    animation: stripes 1s linear infinite;
+            }
+
+            .submit-button:active {
+                transform: scale(.98);
+            }
+
+            /****** Cursors *****/
+
+            label[for*="-0"] {
+                cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥵</text></svg>")
+                16 0, auto;
+            }
+
+            label[for*="-1"] {
+                cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>😬</text></svg>")
+                16 0, auto;
+            }
+
+            label[for*="-2"] {
+                cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>😥</text></svg>")
+                16 0, auto;
+            }
+
+            label[for*="-3"] {
+                cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>😕</text></svg>")
+                16 0, auto;
+            }
+
+            label[for*="-4"] {
+                cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👍</text></svg>")
+                16 0, auto;
+            }
+
+            label[for*="-5"] {
+                cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🤘</text></svg>")
+                16 0, auto;
+            }
         }
 
         .submit-button:focus {
@@ -99,64 +195,12 @@
             }
         } */
 
-        label:hover {
-            color: var(--selected-color);
-        }
-
-        .submit-button:hover {
-            border: solid .125rem var(--selected-color);
-            color: var(--selected-color);
-            background-image: 
-                repeating-linear-gradient(
-                    135deg, 
-                    #E94584, 
-                    #E94584 1rem,
-                    #F17C58 1rem,
-                    #F17C58 2rem,
-                    #FFDC18 2rem,
-                    #FFDC18 3rem,
-                    #27DBB1 3rem,
-                    #27DBB1 4rem,
-                    #24AADB 4rem,
-                    #24AADB 5rem, 
-                    #27DBB1 5rem,
-                    #27DBB1 6rem,
-                    #FFDC18 6rem,
-                    #FFDC18 7rem,
-                    #F17C58 7rem,
-                    #F17C58 8rem,
-                    #E94584 8rem, 
-                    #E94584 9rem,
-                    #F17C58 9rem,
-                    #F17C58 10rem,
-                    #FFDC18 10rem,
-                    #FFDC18 11rem,
-                    #27DBB1 11rem,
-                    #27DBB1 12rem,
-                    #24AADB 12rem,
-                    #24AADB 13rem, 
-                    #27DBB1 13rem,
-                    #27DBB1 14rem,
-                    #FFDC18 14rem,
-                    #FFDC18 15rem,
-                    #F17C58 15rem,
-                    #F17C58 16rem
-                    );
-                background-size: 200% 200%;
-                animation: stripes 1s linear infinite;
-            }
-
-        @keyframes stripes {
-            100% {
-                background-position: 100% 100%;
-            }
-        }
-
         .answer-zone {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: .75rem;
         }
+
         .answer-group {
             padding: 2rem;
             display: flex;
@@ -176,7 +220,6 @@
             font-weight: 600;
         }
 
-
         .answer-group:nth-child(1) {
             background: #ffd0d0;
         }
@@ -187,53 +230,54 @@
             background: #d0ddff;
         }
 
-
-        /****** Cursors *****/
-
-        label[for*="-0"] {
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥵</text></svg>")
-      16 0, auto;
-        }
-
-        label[for*="-1"] {
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>😬</text></svg>")
-      16 0, auto;
-        }
-
-        label[for*="-2"] {
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>😥</text></svg>")
-      16 0, auto;
-        }
-
-        label[for*="-3"] {
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>😕</text></svg>")
-      16 0, auto;
-        }
-
-        label[for*="-4"] {
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👍</text></svg>")
-      16 0, auto;
-        }
-
-        label[for*="-5"] {
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🤘</text></svg>")
-      16 0, auto;
-        }
-
-
         @media screen and (max-width: 375px) {
+            body {
+                font-size: 1.125rem;
+            }
+
+            label, .submit-button {
+                transition: all 0.23s;
+            }
+
             label {
                 display: flex;
+                padding: .5rem 1rem;
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+            }
+
+            input[type="radio"]:checked + label {
+                transform: scale(1.05); 
+                font-weight: 500; 
+            }
+
+            .submit-button:active {
+                color: var(--selected-color);
+                background-image: 
+                    var(--rainbow-gradient);
+                    background-size: 200% 200%;
+                    animation: stripes 1s linear infinite;
+                    transform: scale(.98);
             }
 
             .submit-button {
                 width: 100%;
                 text-align: center;
             }
+
+            .answer-zone {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
+
+        @keyframes stripes {
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
     </style>
 </head>
-<body>
+<body ontouchstart="">
     <form id="self-assessment-test" name="self-assessment-test">
         <% for (let i in questions) { %>
         <p><%= +i + 1 %>. <%= questions[i].text %></p>
@@ -275,8 +319,6 @@
             default:
             break; } %>
         </label>
-
-
 
         <% } %>
         <% } %>
