@@ -38,7 +38,7 @@
     <form id="self-assessment-test" name="self-assessment-test">
         <% for (let i in questions) { %>
         <p><%= +i + 1 %>. <%= questions[i].text %></p>
-        <% for (let j = 1; j <= 5; j++) { %>
+        <% for (let j = 0; j <= 5; j++) { %>
         <% var id = `q${ +i + 1}-${j}` %>
         <input
             type="radio"
