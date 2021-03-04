@@ -23,14 +23,8 @@ function handleFormSubmit(event) {
 
     document.querySelectorAll(`[id^=group-`)
     .forEach((element, i) => {
-        heading = document.createElement('h3');
-        heading.innerText = categories[i];
-
-        score = document.createElement('p');
-        score.innerText = tally[i];
-
-        element.appendChild(heading);
-        element.appendChild(score);
+        element.getElementsByClassName('score-heading')[0].innerText = categories[i];
+        element.getElementsByClassName('score')[0].innerText = tally[i];
     })
 
 }
